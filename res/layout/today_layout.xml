@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:orientation="vertical">
+<TextView android:id="@+id/TextView01" android:text="@+id/TextView01" android:layout_height="30px" android:layout_width="wrap_content"></TextView><TextView android:id="@+id/TextView02" android:text="@+id/TextView02" android:layout_width="fill_parent" android:layout_height="30px"></TextView><SeekBar android:id="@+id/SeekBar01" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10px"></SeekBar>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<SeekBar android:id="@+id/SeekBar02" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10px"></SeekBar>
+<SeekBar android:id="@+id/SeekBar03" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10px"></SeekBar>
+<EditText android:text="@+id/EditText01" android:id="@+id/EditText01" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_margin="10px"></EditText>
+<Button android:text="@+id/Button01" android:id="@+id/Button01" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_margin="10px"></Button>
+</LinearLayout>
