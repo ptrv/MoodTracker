@@ -1,5 +1,6 @@
-package de.avpptr;
+package de.avpptr.android;
 
+import de.avpptr.android.R;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -33,6 +34,12 @@ public class MoodTracker extends TabActivity {
 	    intent = new Intent().setClass(this, LogActivity.class);
 	    spec = tabHost.newTabSpec("log").setIndicator("Log",
 	                      res.getDrawable(R.drawable.tab_log))
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
+
+	    intent = new Intent().setClass(this, SettingsActivity.class);
+	    spec = tabHost.newTabSpec("settings").setIndicator("Settings",
+	                      res.getDrawable(R.drawable.tab_settings))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 

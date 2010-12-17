@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:id="@+id/LinearLayoutMaster"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<ScrollView android:id="@+id/ScrollView01"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+		<LinearLayout android:id="@+id/LinearLayoutScrollContainer"
+			android:layout_height="fill_parent" android:orientation="vertical"
+			android:layout_width="fill_parent">
+
+			<LinearLayout android:id="@+id/LinearLayout01"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+				
+				<TextView android:id="@+id/TextView11"
+					android:layout_height="fill_parent" android:text="@string/labelTired"
+					android:layout_width="0px" android:layout_weight="2"
+					android:gravity="center"></TextView>
+
+				<SeekBar android:id="@+id/SeekBar01"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="8"></SeekBar>
+
+			</LinearLayout>
+
+			<EditText android:text="@+id/EditText01" android:id="@+id/EditText01"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:layout_marginLeft="10px" android:layout_marginRight="10px"
+				android:layout_marginTop="10px" android:layout_marginBottom="10px"></EditText>
+
+
+			<Button android:text="@+id/Button01" android:id="@+id/Button01"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:layout_marginLeft="10px" android:layout_marginRight="10px"></Button>
+
+
+		</LinearLayout>
+
+	</ScrollView>
+	
+</LinearLayout>

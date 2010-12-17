@@ -1,4 +1,4 @@
-package de.avpptr;
+package de.avpptr.android;
 
 import android.app.Activity;
 import android.os.Bundle;
