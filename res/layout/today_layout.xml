@@ -27,7 +27,7 @@
 					android:gravity="left"></TextView>
 		
 		<TextView android:id="@+id/TextView12" android:layout_height="fill_parent"
-			android:text="@string/labelHappy" android:layout_width="0px"
+			android:text="@string/labelHappiness" android:layout_width="0px"
 			android:layout_weight="1" android:gravity="right"></TextView>
 			</LinearLayout>
 
@@ -39,12 +39,12 @@
 				android:layout_width="fill_parent" android:layout_height="wrap_content"
 				android:layout_marginLeft="10px" android:layout_marginRight="10px">
 				<TextView android:id="@+id/TextView21"
-					android:layout_height="fill_parent" android:text="@string/labelTired"
+					android:layout_height="fill_parent" android:text="@string/labelTiredness"
 					android:layout_width="0px" android:layout_weight="1"
 					android:gravity="left"></TextView>
 
 				<TextView android:id="@+id/TextView22"
-					android:layout_height="fill_parent" android:text="@string/labelEnergetic"
+					android:layout_height="fill_parent" android:text="@string/labelHopeful"
 					android:layout_width="0px" android:layout_weight="1"
 					android:gravity="right"></TextView>
 			</LinearLayout>

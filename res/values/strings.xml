@@ -5,14 +5,15 @@
 
 <string name="labelTitle">MoodTracker</string>
 <string name="labelSad">Sad</string>
-<string name="labelHappy">Happy</string>
-<string name="labelTired">Tired</string>
-<string name="labelEnergetic">Energetic</string>
-<string name="labelWorried">Woried</string>
-<string name="labelCalm">Calm</string>
-<string name="labelStressed">Stressed</string>
-<string name="labelRelaxed">Relaxed</string>
-<string name="labelAngry">Angry</string>
-<string name="labelContent">Content</string>
-
+<string name="labelHappiness">Happiness</string>
+<string name="labelTiredness">Tiredness</string>
+<string name="labelHopeful">Hopeful</string>
+<string name="labelStress">Stress</string>
+<string name="labelSecure">Secure</string>
+<string name="labelAnxiety">Anxiety</string>
+<string name="labelProductive">Productive</string>
+<string name="labelLoved">Loved</string>
+<string name="noteFieldDefault">Enter note for mood</string>
+<string name="buttonSubmitHandler">buttonSubmitHandler</string>
+<string name="buttonSubmitName">Submit mood</string>
 </resources>
