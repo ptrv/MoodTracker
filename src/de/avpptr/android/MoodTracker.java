@@ -11,7 +11,6 @@ public class MoodTracker extends TabActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.main);
@@ -22,11 +21,11 @@ public class MoodTracker extends TabActivity {
 	    Intent intent;  // Reusable Intent for each tab
 
 	    // Create an Intent to launch an Activity for the tab (to be reused)
-	    intent = new Intent().setClass(this, TodayActivity.class);
+	    intent = new Intent().setClass(this, MoodActivity.class);
 
 	    // Initialize a TabSpec for each tab and add it to the TabHost
-	    spec = tabHost.newTabSpec("today").setIndicator("Today",
-	                      res.getDrawable(R.drawable.tab_today))
+	    spec = tabHost.newTabSpec("mood").setIndicator("Mood",
+	                      res.getDrawable(R.drawable.tab_mood))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, MoodTracker!</string>
-    <string name="app_name">MoodTracker</string>
+	<string name="app_name">MoodTracker</string>
 
-<string name="labelTitle">MoodTracker</string>
-<string name="labelSad">Sad</string>
-<string name="labelHappiness">Happiness</string>
-<string name="labelTiredness">Tiredness</string>
-<string name="labelHopeful">Hopeful</string>
-<string name="labelStress">Stress</string>
-<string name="labelSecure">Secure</string>
-<string name="labelAnxiety">Anxiety</string>
-<string name="labelProductive">Productive</string>
-<string name="labelLoved">Loved</string>
-<string name="noteFieldDefault">Enter note for mood</string>
-<string name="buttonSubmitHandler">buttonSubmitHandler</string>
-<string name="buttonSubmitName">Submit mood</string>
+	<string name="labelTitle">MoodTracker</string>
+	<string name="labelSad">Sad</string>
+	<string name="labelHappiness">Happiness</string>
+	<string name="labelTiredness">Tiredness</string>
+	<string name="labelHopeful">Hopeful</string>
+	<string name="labelStress">Stress</string>
+	<string name="labelSecure">Secure</string>
+	<string name="labelAnxiety">Anxiety</string>
+	<string name="labelProductive">Productive</string>
+	<string name="labelLoved">Loved</string>
+	<string name="noteFieldDefault">Enter note for mood</string>
+	<string name="buttonSubmitHandler">buttonSubmitHandler</string>
+	<string name="buttonSubmitName">Submit mood</string>
+	<string name="popupSubmit">Mood saved</string>
+<color name="colorPopup">#000</color>
 </resources>

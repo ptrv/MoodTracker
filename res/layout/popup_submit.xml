@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout android:id="@+id/LinearLayout01"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@color/colorPopup" android:gravity="center">
+	<TextView android:text="@string/popupSubmit" android:id="@+id/TextViewPopupSubmit"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:gravity="center"></TextView>
+</LinearLayout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/LinearLayoutMaster" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ScrollView android:id="@+id/ScrollView01"
+		android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+		<LinearLayout android:id="@+id/LinearLayoutScrollContainer"
+			android:layout_height="fill_parent" android:orientation="vertical"
+			android:layout_width="fill_parent">
+
+			<LinearLayout android:id="@+id/LinearLayoutHappiness"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewHappiness"
+					android:layout_height="fill_parent" android:text="@string/labelHappiness"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarHappiness"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/LinearLayoutTiredness"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewTiredness"
+					android:layout_height="fill_parent" android:text="@string/labelTiredness"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarTiredness"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/LinearLayoutHopeful"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewHopeful"
+					android:layout_height="fill_parent" android:text="@string/labelHopeful"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarHopeful"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/LinearLayoutStress"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewStress"
+					android:layout_height="fill_parent" android:text="@string/labelStress"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarStress"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/LinearLayoutSecure"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewSecure"
+					android:layout_height="fill_parent" android:text="@string/labelSecure"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarSecure"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" 
+					android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/LinearLayoutAnxiety"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewAnxiety"
+					android:layout_height="fill_parent" android:text="@string/labelAnxiety"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarAnxiety"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/LinearLayoutProductive"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewProductive"
+					android:layout_height="fill_parent" android:text="@string/labelProductive"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarProductive"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/LinearLayoutLoved"
+				android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+				<TextView android:id="@+id/TextViewLoved"
+					android:layout_height="fill_parent" android:text="@string/labelLoved"
+					android:layout_width="0px" android:layout_weight="3"
+					android:gravity="left|center_vertical"></TextView>
+
+				<SeekBar android:id="@+id/SeekBarLoved"
+					android:layout_height="wrap_content" android:layout_margin="5px"
+					android:layout_width="0px" android:layout_weight="5" android:max="10"></SeekBar>
+
+			</LinearLayout>
+
+			<EditText android:text="@string/noteFieldDefault"
+				android:id="@+id/NoteField" android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:layout_marginLeft="10px"
+				android:layout_marginRight="10px" android:layout_marginTop="10px"
+				android:layout_marginBottom="10px"></EditText>
+
+
+			<Button android:text="@string/buttonSubmitName" android:id="@+id/ButtonSubmit"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:layout_marginLeft="10px" android:layout_marginRight="10px" android:onClick="@string/buttonSubmitHandler"></Button>
+
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

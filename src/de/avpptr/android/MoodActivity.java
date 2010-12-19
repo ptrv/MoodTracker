@@ -2,18 +2,24 @@ package de.avpptr.android;
 
 import de.avpptr.android.R;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.View.OnKeyListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class TodayActivity extends Activity {
+public class MoodActivity extends Activity {
 	
 	private static int NUM_MOODS = 8;
 	private int[] mMoodValues = new int[NUM_MOODS];
@@ -25,12 +31,24 @@ public class TodayActivity extends Activity {
 	private Button mButtonSubmit;
 	private boolean mMoodNoteFirsFocus = true;
 	
+	private PopupWindow mPopup;
+	//how much time your popup window should appear
+	private static final int POPUP_DISMISS_DELAY = 1000;
+	private DismissPopup mDismissPopup = new DismissPopup();
+	class DismissPopup implements Runnable {
+        public void run() {
+            // Protect against null-pointer exceptions
+            if (mPopup != null) {
+                mPopup.dismiss();
+            }
+        }
+    }
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        setContentView(R.layout.today_layout2);
+        setContentView(R.layout.mood_layout);
         
         mMoodSliders[0] = (SeekBar) findViewById(R.id.SeekBarHappiness);
         mMoodLabels[0] = (TextView) findViewById(R.id.TextViewHappiness);
@@ -95,18 +113,42 @@ public class TodayActivity extends Activity {
 //            }
 //        });
         mButtonSubmit = (Button) findViewById(R.id.ButtonSubmit);
+        
+        LayoutInflater inflater = (LayoutInflater) MoodActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mPopup = new PopupWindow(inflater.inflate(R.layout.popup_submit,null, false),100,50,true);   
+        mPopup.setOutsideTouchable(false);
+        mPopup.setTouchInterceptor(new OnTouchListener() {
+
+        	public boolean onTouch(View v, MotionEvent event) {
+        		//your code when touched on the event
+        		return false;
+        	}
+
+        });
     }
+
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
     
-	public void submitButtonHandler(View view){
+	public void buttonSubmitHandler(View view){
 		switch (view.getId()) {
 		case R.id.ButtonSubmit:
 			saveMood();
 			resetMood();
+//			LayoutInflater inflater = (LayoutInflater) MoodActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//			//Here x is the name of the xml which contains the popup components
+//			PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.popup_submit,null, false),300,400,true);
+//			//Here y is the id of the root component
+//
+//			pw.showAtLocation(findViewById(R.id.ButtonSubmit), Gravity.CENTER, 0,0);
+			//mNoteField.setText("button clicked");
+			
+			mPopup.showAtLocation(this.findViewById(R.id.LinearLayoutMaster),Gravity.BOTTOM, 0, 30);
+		    View v = findViewById(R.id.LinearLayoutMaster);
+			v.postDelayed(mDismissPopup, POPUP_DISMISS_DELAY);
 			break;
 		default:
 			break;
