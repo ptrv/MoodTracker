@@ -1,19 +1,14 @@
 package de.avpptr.android;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
-import android.view.View.OnTouchListener;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MoodActivity extends Activity {
 	
@@ -24,21 +19,9 @@ public class MoodActivity extends Activity {
 	private SeekBar[] mMoodSliders = new SeekBar[NUM_MOODS];
 //	private Editable mMoodNote;
 	private EditText mNoteField;
-	private Button mButtonSubmit;
 	private boolean mMoodNoteFirsFocus = true;
 	
-	private PopupWindow mPopup;
-	//how much time your popup window should appear
-	private static final int POPUP_DISMISS_DELAY = 1000;
-	private DismissPopup mDismissPopup = new DismissPopup();
-	class DismissPopup implements Runnable {
-        public void run() {
-            // Protect against null-pointer exceptions
-            if (mPopup != null) {
-                mPopup.dismiss();
-            }
-        }
-    }
+	private static final int SHOW_TOAST_LENGTH = 1000;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,18 +54,7 @@ public class MoodActivity extends Activity {
         }
 
         mNoteField = (EditText) findViewById(R.id.NoteField);
-//        mNoteField.setOnKeyListener(new OnKeyListener() {
-//			
-//			public boolean onKey(View v, int keyCode, KeyEvent event) {
-//				// If the event is a key-down event on the "enter" button
-//				if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-//						(keyCode == KeyEvent.KEYCODE_ENTER)) {
-//					mMoodNote = mNoteField.getText();
-//					return true;
-//				}
-//				return false;
-//			}
-//		});
+
         mNoteField.setOnFocusChangeListener(new OnFocusChangeListener() {
 			
 			public void onFocusChange(View v, boolean hasFocus) {
@@ -95,32 +67,6 @@ public class MoodActivity extends Activity {
 //				}
 			}
 		});
-        
-//        setKeyListener(new KeyListener() {
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                // If the event is a key-down event on the "enter" button
-//                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-//                    (keyCode == KeyEvent.KEYCODE_ENTER)) {
-//                  // Perform action on key press
-//                  Toast.makeText(HelloFormStuff.this, edittext.getText(), Toast.LENGTH_SHORT).show();
-//                  return true;
-//                }
-//                return false;
-//            }
-//        });
-        mButtonSubmit = (Button) findViewById(R.id.ButtonSubmit);
-        
-        LayoutInflater inflater = (LayoutInflater) MoodActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mPopup = new PopupWindow(inflater.inflate(R.layout.popup_submit,null, false),200,50,true);   
-        mPopup.setOutsideTouchable(false);
-        mPopup.setTouchInterceptor(new OnTouchListener() {
-
-        	public boolean onTouch(View v, MotionEvent event) {
-        		//your code when touched on the event
-        		return false;
-        	}
-
-        });
     }
 
 	@Override
@@ -133,18 +79,13 @@ public class MoodActivity extends Activity {
 		switch (view.getId()) {
 		case R.id.ButtonSubmit:
 			saveMood();
-			resetMood();
-//			LayoutInflater inflater = (LayoutInflater) MoodActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//			//Here x is the name of the xml which contains the popup components
-//			PopupWindow pw = new PopupWindow(inflater.inflate(R.layout.popup_submit,null, false),300,400,true);
-//			//Here y is the id of the root component
-//
-//			pw.showAtLocation(findViewById(R.id.ButtonSubmit), Gravity.CENTER, 0,0);
-			//mNoteField.setText("button clicked");
-			
-			mPopup.showAtLocation(this.findViewById(R.id.LinearLayoutMaster),Gravity.CENTER, 0, 0);
-		    View v = findViewById(R.id.LinearLayoutMaster);
-			v.postDelayed(mDismissPopup, POPUP_DISMISS_DELAY);
+			Handler handler = new Handler(); 
+		    handler.postDelayed(new Runnable() { 
+		         public void run() { 
+		              resetMood(); 
+		         } 
+		    }, SHOW_TOAST_LENGTH);
+		    Toast.makeText(this, R.string.toastSubmitText, SHOW_TOAST_LENGTH).show();
 			break;
 		default:
 			break;
