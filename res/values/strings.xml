@@ -20,4 +20,7 @@
 	<string name="settingsClearDbText">Clear database</string>
 	<string name="settingsSaveDbText">Save database</string>
 	<string name="settingsButtonsHandler">settingsButtonsHandler</string>
+	<string name="th_id">id</string>
+	<string name="th_text_one">time</string>
+	<string name="th_text_two">note</string>
 </resources>

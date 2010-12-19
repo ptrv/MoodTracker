@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-</ListView>
+
+<LinearLayout android:id="@+id/LinearLayoutLog"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<ScrollView android:id="@+id/ScrollView01"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+		<TableLayout android:id="@+id/data_table"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<TableRow>
+				<TextView android:text="@string/th_id" android:minWidth="50px"
+					android:paddingRight="5px" />
+				<TextView android:text="@string/th_text_one"
+					android:minWidth="125px" />
+			</TableRow>
+		</TableLayout>
+
+
+	</ScrollView>
+</LinearLayout>

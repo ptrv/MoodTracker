@@ -1,8 +1,11 @@
 package de.avpptr.android;
 
+import java.util.ArrayList;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -33,10 +36,12 @@ public class MoodsDatabaseManager{
                 Moods.NOTE + " TEXT," +
                 Moods.CREATED_DATE + " TEXT);";
 
+    MoodsDatabaseHelper dbHelper;
+    
     public MoodsDatabaseManager(Context context){
     	this.context = context;
     	
-    	MoodsDatabaseHelper dbHelper = new MoodsDatabaseHelper(context);
+    	dbHelper = new MoodsDatabaseHelper(context);
     	this.db = dbHelper.getWritableDatabase();
     	
     }
@@ -61,7 +66,8 @@ public class MoodsDatabaseManager{
     	values.put(Moods.CREATED_DATE, timeString);
     	
      
-    	// ask the database object to insert the new data 
+    	// ask the database object to insert the new data
+    	this.db = dbHelper.getWritableDatabase();
     	try
     	{
     		db.insert(DATABASE_TABLE_NAME, null, values);
@@ -70,11 +76,14 @@ public class MoodsDatabaseManager{
     	{
     		Log.e("DB ERROR", e.toString()); // prints the error message to the log
     		e.printStackTrace(); // prints the stack trace to the log
-    	}	
+    	}
+    	dbHelper.close();
+//    	db.close();
     }
 
     public void deleteAllRows()
 	{
+    	this.db = dbHelper.getWritableDatabase();
 		// ask the database manager to delete the row of given id
 		try {
 			db.execSQL("DELETE FROM " + DATABASE_TABLE_NAME + ";");
@@ -92,11 +101,12 @@ public class MoodsDatabaseManager{
 			Log.e("DB ERROR", e.toString());
 			e.printStackTrace();
 		}
+		dbHelper.close();
 
 	}
 
     public int getRowCount() {
-
+    	this.db = dbHelper.getWritableDatabase();
     	Cursor cursor;
 		int count = 0;
 		try {
@@ -108,9 +118,62 @@ public class MoodsDatabaseManager{
 			Log.e("Counting rows ERROR", e.toString());
 			e.printStackTrace();
 		}
-
+		dbHelper.close();
 		return count;
 	};
+
+	public ArrayList<ArrayList<Object>> getAllRowsAsArrays()
+	{
+		this.db = dbHelper.getWritableDatabase();
+		// create an ArrayList that will hold all of the data collected from
+		// the database.
+		ArrayList<ArrayList<Object>> dataArrays = new ArrayList<ArrayList<Object>>();
+ 
+		// this is a database call that creates a "cursor" object.
+		// the cursor object store the information collected from the
+		// database and is used to iterate through the data.
+		Cursor cursor;
+ 
+		try
+		{
+			// ask the database object to create the cursor.
+			cursor = db.query(
+					DATABASE_TABLE_NAME,
+					new String[]{Moods.ID, Moods.CREATED_DATE, Moods.NOTE},
+					null, null, null, null, null
+			);
+ 
+			// move the cursor's pointer to position zero.
+			cursor.moveToFirst();
+ 
+			// if there is data after the current cursor position, add it
+			// to the ArrayList.
+			if (!cursor.isAfterLast())
+			{
+				do
+				{
+					ArrayList<Object> dataList = new ArrayList<Object>();
+ 
+					dataList.add(cursor.getLong(0));
+					dataList.add(cursor.getString(1));
+					dataList.add(cursor.getString(2));
+ 
+					dataArrays.add(dataList);
+				}
+				// move the cursor's pointer up one position.
+				while (cursor.moveToNext());
+			}
+		}
+		catch (SQLException e)
+		{
+			Log.e("DB Error", e.toString());
+			e.printStackTrace();
+		}
+		dbHelper.close();
+		// return the ArrayList that holds the data collected from
+		// the database.
+		return dataArrays;
+	}
 
     private class MoodsDatabaseHelper extends SQLiteOpenHelper{
 		public MoodsDatabaseHelper(Context context) {
