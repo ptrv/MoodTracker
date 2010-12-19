@@ -1,17 +1,13 @@
 package de.avpptr.android;
 
-import de.avpptr.android.R;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
-import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +22,7 @@ public class MoodActivity extends Activity {
 	private TextView[] mMoodLabels = new TextView[NUM_MOODS];
 	private String[] mMoodNames = new String[NUM_MOODS];
 	private SeekBar[] mMoodSliders = new SeekBar[NUM_MOODS];
-	private Editable mMoodNote;
+//	private Editable mMoodNote;
 	private EditText mNoteField;
 	private Button mButtonSubmit;
 	private boolean mMoodNoteFirsFocus = true;
@@ -115,7 +111,7 @@ public class MoodActivity extends Activity {
         mButtonSubmit = (Button) findViewById(R.id.ButtonSubmit);
         
         LayoutInflater inflater = (LayoutInflater) MoodActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mPopup = new PopupWindow(inflater.inflate(R.layout.popup_submit,null, false),100,50,true);   
+        mPopup = new PopupWindow(inflater.inflate(R.layout.popup_submit,null, false),200,50,true);   
         mPopup.setOutsideTouchable(false);
         mPopup.setTouchInterceptor(new OnTouchListener() {
 
@@ -146,7 +142,7 @@ public class MoodActivity extends Activity {
 //			pw.showAtLocation(findViewById(R.id.ButtonSubmit), Gravity.CENTER, 0,0);
 			//mNoteField.setText("button clicked");
 			
-			mPopup.showAtLocation(this.findViewById(R.id.LinearLayoutMaster),Gravity.BOTTOM, 0, 30);
+			mPopup.showAtLocation(this.findViewById(R.id.LinearLayoutMaster),Gravity.CENTER, 0, 0);
 		    View v = findViewById(R.id.LinearLayoutMaster);
 			v.postDelayed(mDismissPopup, POPUP_DISMISS_DELAY);
 			break;
@@ -160,8 +156,11 @@ public class MoodActivity extends Activity {
 		
 	}
 	private void resetMood() {
-		// TODO Auto-generated method stub
-		
+		for(int i = 0; i < NUM_MOODS; i++){
+			mMoodSliders[i].setProgress(0);
+			mMoodLabels[i].setText(mMoodNames[i]);
+		}
+		mNoteField.setText(getString(R.string.noteFieldDefault));
 	}
 
 	private SeekBar.OnSeekBarChangeListener seekBarChangeListener

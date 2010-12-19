@@ -7,5 +7,5 @@
 	android:background="@color/colorPopup" android:gravity="center">
 	<TextView android:text="@string/popupSubmit" android:id="@+id/TextViewPopupSubmit"
 	android:layout_width="wrap_content" android:layout_height="wrap_content"
-	android:gravity="center"></TextView>
+	android:gravity="center" android:textSize="18sp"></TextView>
 </LinearLayout>

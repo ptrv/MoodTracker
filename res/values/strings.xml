@@ -16,5 +16,5 @@
 	<string name="buttonSubmitHandler">buttonSubmitHandler</string>
 	<string name="buttonSubmitName">Submit mood</string>
 	<string name="popupSubmit">Mood saved</string>
-<color name="colorPopup">#000</color>
+<color name="colorPopup">#444444</color>
 </resources>
