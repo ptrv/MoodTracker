@@ -16,4 +16,8 @@
 	<string name="buttonSubmitHandler">buttonSubmitHandler</string>
 	<string name="buttonSubmitName">Submit mood</string>
 	<string name="toastSubmitText">Mood saved!</string>
+	<string name="settingsTitle">Settings</string>
+	<string name="settingsClearDbText">Clear database</string>
+	<string name="settingsSaveDbText">Save database</string>
+	<string name="settingsButtonsHandler">settingsButtonsHandler</string>
 </resources>

@@ -2,6 +2,7 @@ package de.avpptr.android;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class SettingsActivity extends Activity{
@@ -10,8 +11,16 @@ public class SettingsActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView textview = new TextView(this);
-        textview.setText("This is the Settings tab");
-        setContentView(textview);
+        setContentView(R.layout.settings_layout);
     }
+    
+    public void settingsButtonsHandler(View view){
+    	switch (view.getId()) {
+    	case R.id.ButtonClearDb:
+    		break;
+    	case R.id.ButtonSaveDbAsText:
+    		break;
+    	}
+    }
+    
 }

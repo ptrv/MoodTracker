@@ -1,8 +1,12 @@
 package de.avpptr.android;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
@@ -19,9 +23,11 @@ public class MoodActivity extends Activity {
 	private SeekBar[] mMoodSliders = new SeekBar[NUM_MOODS];
 //	private Editable mMoodNote;
 	private EditText mNoteField;
-	private boolean mMoodNoteFirsFocus = true;
+	private boolean mMoodNoteFirstFocus = true;
 	
 	private static final int SHOW_TOAST_LENGTH = 1000;
+	
+	private MoodsDatabaseManager db;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,15 +64,16 @@ public class MoodActivity extends Activity {
         mNoteField.setOnFocusChangeListener(new OnFocusChangeListener() {
 			
 			public void onFocusChange(View v, boolean hasFocus) {
-				if(v == mNoteField && mMoodNoteFirsFocus && hasFocus){
+				if(v == mNoteField && mMoodNoteFirstFocus && hasFocus){
 					mNoteField.setText("");
-					mMoodNoteFirsFocus = true;
+					mMoodNoteFirstFocus = true;
 				}
 //				else if(v == mNoteField && !hasFocus && (mMoodNote.length() == 0)){
 //					mNoteField.setText(R.string.noteFieldDefault);
 //				}
 			}
 		});
+        db = new MoodsDatabaseManager(this);
     }
 
 	@Override
@@ -93,8 +100,33 @@ public class MoodActivity extends Activity {
 	}
 	
 	private void saveMood() {
-		// TODO Auto-generated method stub
-		
+    	try
+    	{
+    		Date dt = new Date();
+    		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    		String now = df.format(dt);
+    		
+    		// ask the database manager to add a row given the two strings
+    		db.addRow
+    		(
+    				mMoodValues[0],
+    				mMoodValues[1],
+    				mMoodValues[2],
+    				mMoodValues[3],
+    				mMoodValues[4],
+    				mMoodValues[5],
+    				mMoodValues[6],
+    				mMoodValues[7],
+    				mNoteField.getText().toString(),
+    				now.toString()
+    		);
+    	}
+    	catch (Exception e)
+    	{
+    		Log.e("Add Error", e.toString());
+    		e.printStackTrace();
+    	}
+
 	}
 	private void resetMood() {
 		for(int i = 0; i < NUM_MOODS; i++){
@@ -102,6 +134,8 @@ public class MoodActivity extends Activity {
 			mMoodLabels[i].setText(mMoodNames[i]);
 		}
 		mNoteField.setText(getString(R.string.noteFieldDefault));
+		mMoodNoteFirstFocus = true;
+		mNoteField.clearFocus();
 	}
 
 	private SeekBar.OnSeekBarChangeListener seekBarChangeListener
