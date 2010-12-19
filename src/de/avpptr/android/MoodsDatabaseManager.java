@@ -2,6 +2,7 @@ package de.avpptr.android;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -75,13 +76,41 @@ public class MoodsDatabaseManager{
     public void deleteAllRows()
 	{
 		// ask the database manager to delete the row of given id
-		try {db.execSQL("DELETE * FROM " + DATABASE_TABLE_NAME + ";");}
+		try {
+			db.execSQL("DELETE FROM " + DATABASE_TABLE_NAME + ";");
+		}
 		catch (Exception e)
 		{
 			Log.e("DB ERROR", e.toString());
 			e.printStackTrace();
 		}
+		try {
+			db.execSQL("DELETE FROM sqlite_sequence WHERE name='"+ DATABASE_TABLE_NAME + "';");
+		}
+		catch (Exception e)
+		{
+			Log.e("DB ERROR", e.toString());
+			e.printStackTrace();
+		}
+
 	}
+
+    public int getRowCount() {
+
+    	Cursor cursor;
+		int count = 0;
+		try {
+			cursor = db.rawQuery("SELECT * FROM moods;", null);
+			count = cursor.getCount();
+		}
+		catch (Exception e)
+		{
+			Log.e("Counting rows ERROR", e.toString());
+			e.printStackTrace();
+		}
+
+		return count;
+	};
 
     private class MoodsDatabaseHelper extends SQLiteOpenHelper{
 		public MoodsDatabaseHelper(Context context) {
@@ -98,8 +127,6 @@ public class MoodsDatabaseManager{
 			// TODO Auto-generated method stub
 			
 		}
-    };
-    
-    
+    }
 
 }

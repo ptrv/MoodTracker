@@ -46,13 +46,13 @@ public final class R {
         public static final int SeekBarSecure=0x7f050011;
         public static final int SeekBarStress=0x7f05000e;
         public static final int SeekBarTiredness=0x7f050008;
-        public static final int TextView01=0x7f05001d;
         public static final int TextViewAnxiety=0x7f050013;
         public static final int TextViewHappiness=0x7f050004;
         public static final int TextViewHopeful=0x7f05000a;
         public static final int TextViewLoved=0x7f050019;
         public static final int TextViewProductive=0x7f050016;
         public static final int TextViewSecure=0x7f050010;
+        public static final int TextViewStatus=0x7f05001d;
         public static final int TextViewStress=0x7f05000d;
         public static final int TextViewTiredness=0x7f050007;
     }
@@ -80,7 +80,7 @@ public final class R {
         public static final int settingsButtonsHandler=0x7f040012;
         public static final int settingsClearDbText=0x7f040010;
         public static final int settingsSaveDbText=0x7f040011;
-        public static final int settingsTitle=0x7f04000f;
+        public static final int settingsStatusText=0x7f04000f;
         public static final int toastSubmitText=0x7f04000e;
     }
 }
