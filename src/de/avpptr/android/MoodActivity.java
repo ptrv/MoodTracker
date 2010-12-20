@@ -2,6 +2,7 @@ package de.avpptr.android;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -102,10 +103,21 @@ public class MoodActivity extends Activity {
 	private void saveMood() {
     	try
     	{
-    		Date dt = new Date();
-    		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    		String now = df.format(dt);
+//    		DateFormat df = DateFormat.getTimeInstance();
+    		SimpleDateFormat dfd = new SimpleDateFormat("yyyy-MM-dd");
+    		SimpleDateFormat dft = new SimpleDateFormat("HH:mm:ss");
+    		dfd.setTimeZone(TimeZone.getTimeZone("gmt"));
+    		dft.setTimeZone(TimeZone.getTimeZone("gmt"));
     		
+    		Date currDate = new Date();
+    		String gmtDate = dfd.format(currDate);
+    		String gmtTime = dft.format(currDate);
+    		String danTime = gmtDate+"T"+gmtTime+"Z";
+    		
+    		String moodNote = mNoteField.getText().toString();
+    		if(moodNote.compareTo(getString(R.string.noteFieldDefault)) == 0){
+    			moodNote = "";
+    		}
     		// ask the database manager to add a row given the two strings
     		db.addRow
     		(
@@ -117,8 +129,8 @@ public class MoodActivity extends Activity {
     				mMoodValues[5],
     				mMoodValues[6],
     				mMoodValues[7],
-    				mNoteField.getText().toString(),
-    				now.toString()
+    				moodNote,
+    				danTime.toString()
     		);
     	}
     	catch (Exception e)

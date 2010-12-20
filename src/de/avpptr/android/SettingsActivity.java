@@ -115,7 +115,7 @@ public class SettingsActivity extends Activity{
 				ArrayList<Object> row = data.get(position);
 				
 				str += "\""+row.get(1).toString()+"\"";
-				str += ", {";
+				str += ", ";
 				str += "happiness: "+row.get(3).toString()+", ";
 				str += "tiredness: "+row.get(4).toString()+", ";
 				str += "hopeful: "+row.get(5).toString()+", ";
@@ -124,7 +124,6 @@ public class SettingsActivity extends Activity{
 				str += "anxiety: "+row.get(8).toString()+", ";
 				str += "productive: "+row.get(9).toString()+", ";
 				str += "loved: "+row.get(10).toString()+", ";
-				str += "}, ";
 				str += "\""+row.get(2).toString()+"\"";
 				str += "\n";
 			}

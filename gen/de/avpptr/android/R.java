@@ -23,9 +23,10 @@ public final class R {
         public static final int tab_settings=0x7f020009;
     }
     public static final class id {
-        public static final int ButtonClearDb=0x7f050020;
-        public static final int ButtonSaveDbAsText=0x7f050021;
+        public static final int ButtonClearDb=0x7f050023;
+        public static final int ButtonSaveDbAsText=0x7f050022;
         public static final int ButtonSubmit=0x7f05001e;
+        public static final int ID_CELL=0x7f05001f;
         public static final int LinearLayoutAnxiety=0x7f050014;
         public static final int LinearLayoutHappiness=0x7f050005;
         public static final int LinearLayoutHopeful=0x7f05000b;
@@ -47,13 +48,14 @@ public final class R {
         public static final int SeekBarSecure=0x7f050013;
         public static final int SeekBarStress=0x7f050010;
         public static final int SeekBarTiredness=0x7f05000a;
+        public static final int TIME_CELL=0x7f050020;
         public static final int TextViewAnxiety=0x7f050015;
         public static final int TextViewHappiness=0x7f050006;
         public static final int TextViewHopeful=0x7f05000c;
         public static final int TextViewLoved=0x7f05001b;
         public static final int TextViewProductive=0x7f050018;
         public static final int TextViewSecure=0x7f050012;
-        public static final int TextViewStatus=0x7f05001f;
+        public static final int TextViewStatus=0x7f050021;
         public static final int TextViewStress=0x7f05000f;
         public static final int TextViewTiredness=0x7f050009;
         public static final int data_table=0x7f050002;
@@ -63,7 +65,8 @@ public final class R {
         public static final int log_list_item=0x7f030001;
         public static final int main=0x7f030002;
         public static final int mood_layout=0x7f030003;
-        public static final int settings_layout=0x7f030004;
+        public static final int row=0x7f030004;
+        public static final int settings_layout=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -79,6 +82,7 @@ public final class R {
         public static final int labelStress=0x7f040006;
         public static final int labelTiredness=0x7f040004;
         public static final int labelTitle=0x7f040001;
+        public static final int moodRecordTitle=0x7f040016;
         public static final int noteFieldDefault=0x7f04000b;
         public static final int settingsButtonsHandler=0x7f040012;
         public static final int settingsClearDbText=0x7f040010;

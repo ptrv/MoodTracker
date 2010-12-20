@@ -7,11 +7,11 @@
 	android:layout_height="wrap_content" android:layout_width="fill_parent"
 	android:gravity="center"></TextView>
 
-<Button android:text="@string/settingsClearDbText"
-	android:layout_height="wrap_content" android:layout_width="fill_parent"
-	android:id="@+id/ButtonClearDb" android:layout_margin="10px" android:onClick="@string/settingsButtonsHandler"></Button>
 <Button android:text="@string/settingsSaveDbText"
 	android:layout_height="wrap_content" android:layout_width="fill_parent"
 	android:id="@+id/ButtonSaveDbAsText" android:layout_margin="10px" android:onClick="@string/settingsButtonsHandler"></Button>
+<Button android:text="@string/settingsClearDbText"
+	android:layout_height="wrap_content" android:layout_width="fill_parent"
+	android:id="@+id/ButtonClearDb" android:layout_margin="10px" android:onClick="@string/settingsButtonsHandler"></Button>
 
 </LinearLayout>

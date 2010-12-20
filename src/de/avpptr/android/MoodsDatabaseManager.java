@@ -245,6 +245,19 @@ public class MoodsDatabaseManager{
 		return dataArrays;
 	}
 
+	public void deleteRow(long rowID)
+	{
+		this.db = dbHelper.getWritableDatabase();
+		// ask the database manager to delete the row of given id
+		try {db.delete(DATABASE_TABLE_NAME, Moods.ID + "=" + rowID, null);}
+		catch (Exception e)
+		{
+			Log.e("DB ERROR", e.toString());
+			e.printStackTrace();
+		}
+		dbHelper.close();
+	}
+
     private class MoodsDatabaseHelper extends SQLiteOpenHelper{
 		public MoodsDatabaseHelper(Context context) {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
