@@ -1,13 +1,9 @@
 package de.avpptr.android;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -61,7 +57,7 @@ public class LogActivity extends Activity{
  
     	// collect the current row information from the database and
     	// store it in a two dimensional ArrayList
-    	ArrayList<ArrayList<Object>> data = db.getAllRowsAsArrays();
+    	ArrayList<ArrayList<Object>> data = db.getRowsAsArraysForLog();
  
     	// iterate the ArrayList, create new rows each time and add them
     	// to the table widget.

@@ -139,6 +139,76 @@ public class MoodsDatabaseManager{
 			// ask the database object to create the cursor.
 			cursor = db.query(
 					DATABASE_TABLE_NAME,
+					new String[]{Moods.ID, 
+							Moods.CREATED_DATE, 
+							Moods.NOTE,
+							Moods.HAPPINESS,
+							Moods.TIREDNESS,
+							Moods.HOPEFUL,
+							Moods.STRESS,
+							Moods.SECURE,
+							Moods.ANXIETY,
+							Moods.PRODUCTIVE,
+							Moods.LOVED},
+					null, null, null, null, null
+			);
+ 
+			// move the cursor's pointer to position zero.
+			cursor.moveToFirst();
+ 
+			// if there is data after the current cursor position, add it
+			// to the ArrayList.
+			if (!cursor.isAfterLast())
+			{
+				do
+				{
+					ArrayList<Object> dataList = new ArrayList<Object>();
+ 
+					dataList.add(cursor.getLong(0));
+					dataList.add(cursor.getString(1));
+					dataList.add(cursor.getString(2));
+					dataList.add(cursor.getString(3));
+					dataList.add(cursor.getString(4));
+					dataList.add(cursor.getString(5));
+					dataList.add(cursor.getString(6));
+					dataList.add(cursor.getString(7));
+					dataList.add(cursor.getString(8));
+					dataList.add(cursor.getString(9));
+					dataList.add(cursor.getString(10));
+ 
+					dataArrays.add(dataList);
+				}
+				// move the cursor's pointer up one position.
+				while (cursor.moveToNext());
+			}
+		}
+		catch (SQLException e)
+		{
+			Log.e("DB Error", e.toString());
+			e.printStackTrace();
+		}
+		dbHelper.close();
+		// return the ArrayList that holds the data collected from
+		// the database.
+		return dataArrays;
+	}
+	public ArrayList<ArrayList<Object>> getRowsAsArraysForLog()
+	{
+		this.db = dbHelper.getWritableDatabase();
+		// create an ArrayList that will hold all of the data collected from
+		// the database.
+		ArrayList<ArrayList<Object>> dataArrays = new ArrayList<ArrayList<Object>>();
+ 
+		// this is a database call that creates a "cursor" object.
+		// the cursor object store the information collected from the
+		// database and is used to iterate through the data.
+		Cursor cursor;
+ 
+		try
+		{
+			// ask the database object to create the cursor.
+			cursor = db.query(
+					DATABASE_TABLE_NAME,
 					new String[]{Moods.ID, Moods.CREATED_DATE, Moods.NOTE},
 					null, null, null, null, null
 			);
