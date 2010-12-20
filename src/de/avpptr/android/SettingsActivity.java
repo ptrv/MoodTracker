@@ -36,9 +36,15 @@ public class SettingsActivity extends Activity{
         mStatusText = (TextView) findViewById(R.id.TextViewStatus);
         setStatusText();
     }
-
+	@Override
+	protected void onPause() {
+		Log.d("SettingsActivity", "Pause");
+		super.onPause();
+	}
+	
 	@Override
 	protected void onResume() {
+		Log.d("SettingsActivity", "Resume");
 		setStatusText();
 		super.onResume();
 	}

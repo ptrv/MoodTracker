@@ -42,7 +42,7 @@ public class MoodsDatabaseManager{
     	this.context = context;
     	
     	dbHelper = new MoodsDatabaseHelper(context);
-    	this.db = dbHelper.getWritableDatabase();
+//    	this.db = dbHelper.getWritableDatabase();
     	
     }
     
@@ -77,7 +77,7 @@ public class MoodsDatabaseManager{
     		Log.e("DB ERROR", e.toString()); // prints the error message to the log
     		e.printStackTrace(); // prints the stack trace to the log
     	}
-    	dbHelper.close();
+    	db.close();
 //    	db.close();
     }
 
@@ -101,30 +101,31 @@ public class MoodsDatabaseManager{
 			Log.e("DB ERROR", e.toString());
 			e.printStackTrace();
 		}
-		dbHelper.close();
+		db.close();
 
 	}
 
     public int getRowCount() {
-    	this.db = dbHelper.getWritableDatabase();
+    	this.db = dbHelper.getReadableDatabase();
     	Cursor cursor;
 		int count = 0;
 		try {
 			cursor = db.rawQuery("SELECT * FROM moods;", null);
 			count = cursor.getCount();
+			cursor.close();
 		}
 		catch (Exception e)
 		{
 			Log.e("Counting rows ERROR", e.toString());
 			e.printStackTrace();
 		}
-		dbHelper.close();
+		db.close();
 		return count;
 	};
 
 	public ArrayList<ArrayList<Object>> getAllRowsAsArrays()
 	{
-		this.db = dbHelper.getWritableDatabase();
+		this.db = dbHelper.getReadableDatabase();
 		// create an ArrayList that will hold all of the data collected from
 		// the database.
 		ArrayList<ArrayList<Object>> dataArrays = new ArrayList<ArrayList<Object>>();
@@ -181,20 +182,21 @@ public class MoodsDatabaseManager{
 				// move the cursor's pointer up one position.
 				while (cursor.moveToNext());
 			}
+			cursor.close();
 		}
 		catch (SQLException e)
 		{
 			Log.e("DB Error", e.toString());
 			e.printStackTrace();
 		}
-		dbHelper.close();
+		db.close();
 		// return the ArrayList that holds the data collected from
 		// the database.
 		return dataArrays;
 	}
 	public ArrayList<ArrayList<Object>> getRowsAsArraysForLog()
 	{
-		this.db = dbHelper.getWritableDatabase();
+		this.db = dbHelper.getReadableDatabase();
 		// create an ArrayList that will hold all of the data collected from
 		// the database.
 		ArrayList<ArrayList<Object>> dataArrays = new ArrayList<ArrayList<Object>>();
@@ -233,13 +235,15 @@ public class MoodsDatabaseManager{
 				// move the cursor's pointer up one position.
 				while (cursor.moveToNext());
 			}
+			cursor.close();
 		}
 		catch (SQLException e)
 		{
 			Log.e("DB Error", e.toString());
 			e.printStackTrace();
 		}
-		dbHelper.close();
+		
+		db.close();
 		// return the ArrayList that holds the data collected from
 		// the database.
 		return dataArrays;
@@ -255,7 +259,7 @@ public class MoodsDatabaseManager{
 			Log.e("DB ERROR", e.toString());
 			e.printStackTrace();
 		}
-		dbHelper.close();
+		db.close();
 	}
 
     private class MoodsDatabaseHelper extends SQLiteOpenHelper{

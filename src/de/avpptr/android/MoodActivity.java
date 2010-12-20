@@ -17,6 +17,20 @@ import android.widget.Toast;
 
 public class MoodActivity extends Activity {
 	
+	@Override
+	protected void onPause() {
+		Log.d("MoodActivity", "Pause");
+		super.onPause();
+	}
+	
+	@Override
+	protected void onResume() {
+		Log.d("MoodActivity", "Resume");
+		super.onResume();
+	}
+
+
+
 	private static int NUM_MOODS = 8;
 	private int[] mMoodValues = new int[NUM_MOODS];
 	private TextView[] mMoodLabels = new TextView[NUM_MOODS];

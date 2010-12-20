@@ -6,6 +6,7 @@ import java.util.HashMap;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -45,7 +46,19 @@ public class LogListActivity extends ListActivity {
 //			}
 //		});
 	}
+	@Override
+	protected void onPause() {
+		Log.d("LogListActivity", "Pause");
+		super.onPause();
+	}
 	
+	@Override
+	protected void onResume() {
+		Log.d("LogListActivity", "Resume");
+		setContent();
+		super.onResume();
+	}
+
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 //		Toast.makeText(getApplicationContext(), 
@@ -79,12 +92,6 @@ public class LogListActivity extends ListActivity {
 
 	}
 
-	@Override
-	protected void onResume() {
-		setContent();
-		super.onResume();
-	}
-	
 	private void setContent() {
 		mylist.clear();
 		
