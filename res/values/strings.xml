@@ -14,7 +14,7 @@
 	<string name="labelLoved">Loved</string>
 	<string name="noteFieldDefault">Enter note for mood</string>
 	<string name="buttonSubmitHandler">buttonSubmitHandler</string>
-	<string name="buttonSubmitName">Submit mood</string>
+	<string name="buttonSubmitName">Save mood</string>
 	<string name="toastSubmitText">Mood saved!</string>
 	<string name="settingsStatusText">Database entries:</string>
 	<string name="settingsClearDbText">Clear database</string>

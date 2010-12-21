@@ -30,11 +30,6 @@ public class MoodTracker extends TabActivity {
 	    tabHost.addTab(spec);
 
 	    // Do the same for the other tabs
-//	    intent = new Intent().setClass(this, LogActivity.class);
-//	    spec = tabHost.newTabSpec("log").setIndicator("Log",
-//	                      res.getDrawable(R.drawable.tab_log))
-//	                  .setContent(intent);
-//	    tabHost.addTab(spec);
 	    intent = new Intent().setClass(this, LogListActivity.class);
 	    spec = tabHost.newTabSpec("log").setIndicator("Log",
 	                      res.getDrawable(R.drawable.tab_log))

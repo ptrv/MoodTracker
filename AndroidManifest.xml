@@ -12,10 +12,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MoodActivity"></activity>
-<!--        <activity android:name=".LogActivity"></activity>-->
         <activity android:name=".SettingsActivity"></activity>
         <activity android:name=".LogListActivity"></activity>
-<!--        <activity android:name=".MoodRecord"></activity>-->
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-sdk android:minSdkVersion="4" />
