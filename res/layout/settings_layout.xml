@@ -9,9 +9,11 @@
 
 <Button android:text="@string/settingsSaveDbText"
 	android:layout_height="wrap_content" android:layout_width="fill_parent"
-	android:id="@+id/ButtonSaveDbAsText" android:layout_margin="10px" android:onClick="@string/settingsButtonsHandler"></Button>
+	android:id="@+id/ButtonSaveDbAsText" android:onClick="@string/settingsButtonsHandler"
+	android:layout_marginTop="30px" android:layout_marginLeft="10px" android:layout_marginRight="10px" android:layout_marginBottom="30px"></Button>
 <Button android:text="@string/settingsClearDbText"
 	android:layout_height="wrap_content" android:layout_width="fill_parent"
-	android:id="@+id/ButtonClearDb" android:layout_margin="10px" android:onClick="@string/settingsButtonsHandler"></Button>
+	android:id="@+id/ButtonClearDb" android:onClick="@string/settingsButtonsHandler"
+	android:layout_marginTop="30px" android:layout_marginBottom="30px" android:layout_marginLeft="10px" android:layout_marginRight="10px"></Button>
 
 </LinearLayout>

@@ -16,7 +16,4 @@
          android:layout_width="0px"
          android:layout_height="wrap_content" android:layout_weight="5"/>
  
-<!--     <TextView android:id="@+id/NOTE_CELL"-->
-<!--         android:layout_width="60dip"-->
-<!--         android:layout_height="wrap_content"  android:layout_weight="1"/>-->
-</LinearLayout>
+ </LinearLayout>

@@ -22,29 +22,14 @@ public class LogListActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		
-		
 		mylist = new ArrayList<HashMap<String, String>>();
 		db = new MoodsDatabaseManager(this);
 		
 		setContent();
 		
-		mMoodsList = new SimpleAdapter(this, mylist, R.layout.row,
+		mMoodsList = new SimpleAdapter(this, mylist, R.layout.log_row,
 		            new String[] {Moods.ID, Moods.CREATED_DATE}, new int[] {R.id.ID_CELL, R.id.TIME_CELL});
 		setListAdapter(mMoodsList);
-//		setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lv_arr));
-//
-//		ListView lv = getListView();
-//		lv.setTextFilterEnabled(true);
-//
-//		lv.setOnItemClickListener(new OnItemClickListener() {
-//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-//					long arg3) {
-//				Toast.makeText(getApplicationContext(), ((TextView) arg1).getText(),
-//						Toast.LENGTH_SHORT).show();
-//
-//			}
-//		});
 	}
 	@Override
 	protected void onPause() {
@@ -61,18 +46,6 @@ public class LogListActivity extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-//		Toast.makeText(getApplicationContext(), 
-//				mylist.get(position).get(Moods.CREATED_DATE), 
-//				Toast.LENGTH_SHORT).show();
-		
-//		setContentView(R.layout.log_layout2);
-
-		//		super.onListItemClick(l, v, position, id);
-
-		
-//		Intent i = new Intent(v.getContext(), MoodRecord.class);
-//		
-//		startActivity(i);
 
 		AlertDialog.Builder adb = new AlertDialog.Builder(l.getContext());
 		adb.setTitle("Mood Record");
