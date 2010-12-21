@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,11 +27,10 @@ public class LogListActivity extends ListActivity {
 		mylist = new ArrayList<HashMap<String, String>>();
 		db = new MoodsDatabaseManager(this);
 		
-		setContent();
-		
 		mMoodsList = new SimpleAdapter(this, mylist, R.layout.log_row,
 		            new String[] {Moods.ID, Moods.CREATED_DATE}, new int[] {R.id.ID_CELL, R.id.TIME_CELL});
 		setListAdapter(mMoodsList);
+		updateContent();
 	}
 	@Override
 	protected void onPause() {
@@ -40,7 +41,7 @@ public class LogListActivity extends ListActivity {
 	@Override
 	protected void onResume() {
 		Log.d("LogListActivity", "Resume");
-		setContent();
+		updateContent();
 		super.onResume();
 	}
 
@@ -61,11 +62,20 @@ public class LogListActivity extends ListActivity {
 				+ "Note: "+mylist.get(position).get(Moods.NOTE)+"\n");
 
 		adb.setPositiveButton("Ok", null);
+		final int rowToDelete = Integer.parseInt(mylist.get(position).get(Moods.ID));
+		adb.setNegativeButton("Delete", new OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int which) {
+				db.deleteRow(rowToDelete);
+				updateContent();
+				
+			}
+		});
 		adb.show();
 
 	}
 
-	private void setContent() {
+	private void updateContent() {
 		mylist.clear();
 		
     	ArrayList<ArrayList<Object>> data = db.getAllRowsAsArrays();
@@ -90,5 +100,6 @@ public class LogListActivity extends ListActivity {
     		
     		mylist.add(map);
     	}
+    	mMoodsList.notifyDataSetChanged();
 	}
 }
