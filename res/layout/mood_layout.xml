@@ -130,10 +130,11 @@
 
 		</LinearLayout>
 
-		<EditText android:text="@string/noteFieldDefault" android:id="@+id/NoteField"
+		<EditText android:text="" android:id="@+id/NoteField"
 			android:layout_height="wrap_content" android:layout_width="fill_parent"
 			android:layout_marginLeft="10px" android:layout_marginRight="10px"
-			android:layout_marginTop="10px" android:layout_marginBottom="10px"></EditText>
+			android:layout_marginTop="10px" android:layout_marginBottom="10px"
+			android:hint="@string/noteFieldDefault"></EditText>
 
 
 		<Button android:text="@string/buttonSubmitName" android:id="@+id/ButtonSubmit"

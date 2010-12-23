@@ -145,7 +145,6 @@ public class SettingsActivity extends Activity{
 				Toast.makeText(this, "Saved file: "+file.getName(), Toast.LENGTH_SHORT).show();
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				Log.e("Writing file ERROR", e.toString());
 				e.printStackTrace();
 			}

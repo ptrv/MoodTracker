@@ -12,7 +12,7 @@
 	<string name="labelAnxiety">Anxiety</string>
 	<string name="labelProductive">Productive</string>
 	<string name="labelLoved">Loved</string>
-	<string name="noteFieldDefault">Enter note for mood</string>
+	<string name="noteFieldDefault">A mood note</string>
 	<string name="buttonSubmitHandler">buttonSubmitHandler</string>
 	<string name="buttonSubmitName">Save mood</string>
 	<string name="toastSubmitText">Mood saved!</string>

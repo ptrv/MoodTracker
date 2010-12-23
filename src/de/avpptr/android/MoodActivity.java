@@ -93,7 +93,6 @@ public class MoodActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
     
@@ -129,9 +128,9 @@ public class MoodActivity extends Activity {
     		String danTime = gmtDate+"T"+gmtTime+"Z";
     		
     		String moodNote = mNoteField.getText().toString();
-    		if(moodNote.compareTo(getString(R.string.noteFieldDefault)) == 0){
-    			moodNote = "";
-    		}
+//    		if(moodNote.compareTo(getString(R.string.noteFieldDefault)) == 0){
+//    			moodNote = "";
+//    		}
     		// ask the database manager to add a row given the two strings
     		db.addRow
     		(
@@ -159,7 +158,7 @@ public class MoodActivity extends Activity {
 			mMoodSliders[i].setProgress(0);
 			mMoodLabels[i].setText(mMoodNames[i]);
 		}
-		mNoteField.setText(getString(R.string.noteFieldDefault));
+		mNoteField.setText("");
 		mMoodNoteFirstFocus = true;
 		mNoteField.clearFocus();
 	}
@@ -180,12 +179,10 @@ public class MoodActivity extends Activity {
 		}
 
 		public void onStartTrackingTouch(SeekBar seekBar) {
-			// TODO Auto-generated method stub
 			
 		}
 
 		public void onStopTrackingTouch(SeekBar seekBar) {
-			// TODO Auto-generated method stub
 			
 		}
 	};
