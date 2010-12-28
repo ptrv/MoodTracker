@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<TextView android:text="@string/app_name" android:id="@+id/TextViewAppName"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:textSize="24dip" android:gravity="center"
+		android:layout_marginTop="20px" android:layout_marginBottom="0px"
+		android:layout_marginLeft="20px" android:layout_marginRight="20px"></TextView>
+	<TextView android:text="" android:id="@+id/TextViewVersionNum"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:textSize="12dip" android:gravity="center"
+		android:layout_marginTop="0px" android:layout_marginBottom="20px"
+		android:layout_marginLeft="20px" android:layout_marginRight="20px"></TextView>
+	<TextView android:text="@string/infoString" android:id="@+id/TextViewInfo"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="center" android:layout_margin="40px"></TextView>
+	<TextView android:text="@string/madByString" android:id="@+id/TextViewMadeBy"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="center"
+		android:layout_marginTop="20px" android:layout_marginBottom="0px"
+		android:layout_marginLeft="20px" android:layout_marginRight="20px"></TextView>
+	<TextView android:text="@string/authorString" android:id="@+id/TextViewAuthor"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="center" android:layout_marginTop="0px" android:layout_marginBottom="0px"
+		android:layout_marginLeft="20px" android:layout_marginRight="20px"
+		android:autoLink="web"></TextView>
+</LinearLayout>

@@ -75,13 +75,13 @@ public class LogListActivity extends ListActivity {
 	}
 	@Override
 	protected void onPause() {
-		Log.d("LogListActivity", "Pause");
+		Log.d("MoodTracker", "LogListActivity Pause");
 		super.onPause();
 	}
 	
 	@Override
 	protected void onResume() {
-		Log.d("LogListActivity", "Resume");
+		Log.d("MoodTracker", "LogListActivity Resume");
 		updateContent();
 		super.onResume();
 	}

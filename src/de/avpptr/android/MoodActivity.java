@@ -19,13 +19,13 @@ public class MoodActivity extends Activity {
 	
 	@Override
 	protected void onPause() {
-		Log.d("MoodActivity", "Pause");
+		Log.d("MoodTracker", "MoodActivity Pause");
 		super.onPause();
 	}
 	
 	@Override
 	protected void onResume() {
-		Log.d("MoodActivity", "Resume");
+		Log.d("MoodTracker", "MoodActivity Resume");
 		super.onResume();
 	}
 

@@ -42,6 +42,12 @@ public class MoodTracker extends TabActivity {
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 
+	    intent = new Intent().setClass(this, InfoActivity.class);
+	    spec = tabHost.newTabSpec("info").setIndicator("Info",
+	                      res.getDrawable(R.drawable.tab_info))
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
+
 	    tabHost.setCurrentTab(0);
 
 	}

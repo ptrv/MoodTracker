@@ -24,4 +24,7 @@
 	<string name="settingsSaveSqlFile">Export database as SQL file</string>
 	<string name="defaultTableName">moods</string>
 	<string name="settingsDefaultTableName">Table name</string>
+	<string name="infoString">This application is for tracking your mood and exporting the results to a text or sql file.</string>
+	<string name="madByString">Made by</string>
+	<string name="authorString">http://avp-ptr.de</string>
 </resources>

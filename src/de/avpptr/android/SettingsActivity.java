@@ -40,13 +40,13 @@ public class SettingsActivity extends Activity{
     }
 	@Override
 	protected void onPause() {
-		Log.d("SettingsActivity", "Pause");
+		Log.d("MoodTracker", "SettingsActivity Pause");
 		super.onPause();
 	}
 	
 	@Override
 	protected void onResume() {
-		Log.d("SettingsActivity", "Resume");
+		Log.d("MoodTracker", "SettingsActivity Resume");
 		setStatusText();
 		super.onResume();
 	}
