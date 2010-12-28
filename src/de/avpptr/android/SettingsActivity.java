@@ -8,13 +8,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.R.bool;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,12 +85,15 @@ public class SettingsActivity extends Activity{
             alertbox.show();
     		break;
     	case R.id.ButtonSaveDbAsText:
-    		saveFile();
+    		saveFile(false);
+    		break;
+    	case R.id.ButtonSaveSqlFile:
+    		saveFile(true);
     		break;
     	}
     }
 
-	private void saveFile() {
+	private void saveFile(boolean isSqlFile) {
 		boolean mExternalStorageAvailable = false;
 		boolean mExternalStorageWriteable = false;
 		String state = Environment.getExternalStorageState();
@@ -113,27 +119,65 @@ public class SettingsActivity extends Activity{
     		String now = df.format(dt);
     		
     		File newPath = new File(path+"/moodtracker/");
-			File file = new File(newPath, "moodtracker_"+now+".txt");
-			
-			ArrayList<ArrayList<Object>> data = db.getAllRowsAsArrays();
-			String str = "";
-			for (int position = 0; position < data.size(); position++) {
-				ArrayList<Object> row = data.get(position);
+    		File file = null;
+    		ArrayList<ArrayList<Object>> data = db.getAllRowsAsArrays();
+    		
+    		
+//			File file = new File(newPath, "moodtracker_"+now+".txt");
+    		String str = "";
+    		
+			if (isSqlFile) {
+				file = new File(newPath, "moodtracker_"+now+".sql");
+				EditText editText = (EditText) findViewById(R.id.EditTextTableName);
+				Editable tableName = editText.getText();
+				for (int position = 0; position < data.size(); position++) {
+					ArrayList<Object> row = data.get(position);
+					
+					str += "INSERT INTO " + tableName.toString() + " (";
+					str += Moods.HAPPINESS + ", ";
+					str += Moods.TIREDNESS + ", ";
+					str += Moods.HOPEFUL + ", ";
+					str += Moods.STRESS + ", ";
+					str += Moods.SECURE + ", ";
+					str += Moods.ANXIETY + ", ";
+					str += Moods.PRODUCTIVE + ", ";
+					str += Moods.LOVED + ", ";
+					str += Moods.NOTE + ", ";
+					str += Moods.CREATED_DATE + ") VALUES (";
+					str += row.get(3).toString()+", ";
+					str += row.get(4).toString()+", ";
+					str += row.get(5).toString()+", ";
+					str += row.get(6).toString()+", ";
+					str += row.get(7).toString()+", ";
+					str += row.get(8).toString()+", ";
+					str += row.get(9).toString()+", ";
+					str += row.get(10).toString()+", ";
+					str += "'"+row.get(2).toString()+"', ";
+					str += "'"+row.get(1).toString()+"');";
+					str += "\n";
+							
+				}
+			} else {
+				file = new File(newPath, "moodtracker_"+now+".txt");
 				
-				str += "\""+row.get(1).toString()+"\"";
-				str += ", ";
-				str += "happiness: "+row.get(3).toString()+", ";
-				str += "tiredness: "+row.get(4).toString()+", ";
-				str += "hopeful: "+row.get(5).toString()+", ";
-				str += "stress: "+row.get(6).toString()+", ";
-				str += "secure: "+row.get(7).toString()+", ";
-				str += "anxiety: "+row.get(8).toString()+", ";
-				str += "productive: "+row.get(9).toString()+", ";
-				str += "loved: "+row.get(10).toString()+", ";
-				str += "\""+row.get(2).toString()+"\"";
-				str += "\n";
+				for (int position = 0; position < data.size(); position++) {
+					ArrayList<Object> row = data.get(position);
+					
+					str += "\""+row.get(1).toString()+"\"";
+					str += ", ";
+					str += "happiness: "+row.get(3).toString()+", ";
+					str += "tiredness: "+row.get(4).toString()+", ";
+					str += "hopeful: "+row.get(5).toString()+", ";
+					str += "stress: "+row.get(6).toString()+", ";
+					str += "secure: "+row.get(7).toString()+", ";
+					str += "anxiety: "+row.get(8).toString()+", ";
+					str += "productive: "+row.get(9).toString()+", ";
+					str += "loved: "+row.get(10).toString()+", ";
+					str += "\""+row.get(2).toString()+"\"";
+					str += "\n";
+				}
 			}
-
+			
 			try {
 				newPath.mkdirs();
 				

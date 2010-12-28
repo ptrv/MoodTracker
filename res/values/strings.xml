@@ -21,4 +21,7 @@
 	<string name="settingsSaveDbText">Export database as text file</string>
 	<string name="settingsButtonsHandler">settingsButtonsHandler</string>
 	<string name="moodRecordTitle">Mood Record</string>
+	<string name="settingsSaveSqlFile">Export database as SQL file</string>
+	<string name="defaultTableName">moods</string>
+	<string name="settingsDefaultTableName">Table name</string>
 </resources>

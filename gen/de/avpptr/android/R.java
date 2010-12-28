@@ -23,10 +23,13 @@ public final class R {
         public static final int tab_settings=0x7f020009;
     }
     public static final class id {
-        public static final int ButtonClearDb=0x7f050021;
+        public static final int ButtonClearDb=0x7f050025;
         public static final int ButtonSaveDbAsText=0x7f050020;
+        public static final int ButtonSaveSqlFile=0x7f050024;
         public static final int ButtonSubmit=0x7f05001e;
+        public static final int EditTextTableName=0x7f050023;
         public static final int ID_CELL=0x7f050000;
+        public static final int LinearLayout01=0x7f050022;
         public static final int LinearLayoutAnxiety=0x7f050014;
         public static final int LinearLayoutHappiness=0x7f050005;
         public static final int LinearLayoutHopeful=0x7f05000b;
@@ -56,6 +59,7 @@ public final class R {
         public static final int TextViewSecure=0x7f050012;
         public static final int TextViewStatus=0x7f05001f;
         public static final int TextViewStress=0x7f05000f;
+        public static final int TextViewTableName=0x7f050021;
         public static final int TextViewTiredness=0x7f050009;
     }
     public static final class layout {
@@ -68,6 +72,7 @@ public final class R {
         public static final int app_name=0x7f040000;
         public static final int buttonSubmitHandler=0x7f04000c;
         public static final int buttonSubmitName=0x7f04000d;
+        public static final int defaultTableName=0x7f040015;
         public static final int labelAnxiety=0x7f040008;
         public static final int labelHappiness=0x7f040003;
         public static final int labelHopeful=0x7f040005;
@@ -82,7 +87,9 @@ public final class R {
         public static final int noteFieldDefault=0x7f04000b;
         public static final int settingsButtonsHandler=0x7f040012;
         public static final int settingsClearDbText=0x7f040010;
+        public static final int settingsDefaultTableName=0x7f040016;
         public static final int settingsSaveDbText=0x7f040011;
+        public static final int settingsSaveSqlFile=0x7f040014;
         public static final int settingsStatusText=0x7f04000f;
         public static final int toastSubmitText=0x7f04000e;
     }
