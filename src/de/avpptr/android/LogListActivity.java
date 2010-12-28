@@ -127,6 +127,15 @@ public class LogListActivity extends ListActivity {
 //			}
 //		});
 		adb.show();
+		
+//		MoodRecordDialog mrd = new MoodRecordDialog(l.getContext());
+//		mrd.show();
+
+//		Intent myIntent = new Intent(l.getContext(), MoodRecord.class);
+//		
+//		startActivity(myIntent);
+//		TextView tvHappiness = (TextView) findViewById(R.id.TextViewMoodRecordHappinessValue);
+//		tvHappiness.setText(mylist.get(position).get(Moods.HAPPINESS));
 	}
 
 	private void updateContent() {

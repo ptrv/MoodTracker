@@ -133,7 +133,8 @@ public class MoodsDatabaseManager{
 		// this is a database call that creates a "cursor" object.
 		// the cursor object store the information collected from the
 		// database and is used to iterate through the data.
-		Cursor cursor;
+		db.beginTransaction();
+		Cursor cursor = null;
  
 		try
 		{
@@ -159,8 +160,7 @@ public class MoodsDatabaseManager{
  
 			// if there is data after the current cursor position, add it
 			// to the ArrayList.
-			if (!cursor.isAfterLast())
-			{
+			if (!cursor.isAfterLast()){
 				do
 				{
 					ArrayList<Object> dataList = new ArrayList<Object>();
@@ -182,12 +182,16 @@ public class MoodsDatabaseManager{
 				// move the cursor's pointer up one position.
 				while (cursor.moveToNext());
 			}
-			cursor.close();
+			db.setTransactionSuccessful();
+			
 		}
 		catch (SQLException e)
 		{
 			Log.e("DB Error", e.toString());
 			e.printStackTrace();
+		} finally {
+			db.endTransaction();
+			cursor.close();
 		}
 		db.close();
 		// return the ArrayList that holds the data collected from
@@ -204,7 +208,8 @@ public class MoodsDatabaseManager{
 		// this is a database call that creates a "cursor" object.
 		// the cursor object store the information collected from the
 		// database and is used to iterate through the data.
-		Cursor cursor;
+		db.beginTransaction();
+		Cursor cursor = null;
  
 		try
 		{
@@ -235,12 +240,15 @@ public class MoodsDatabaseManager{
 				// move the cursor's pointer up one position.
 				while (cursor.moveToNext());
 			}
-			cursor.close();
+			db.setTransactionSuccessful();
 		}
 		catch (SQLException e)
 		{
 			Log.e("DB Error", e.toString());
 			e.printStackTrace();
+		}finally{
+			db.endTransaction();
+			cursor.close();
 		}
 		
 		db.close();
