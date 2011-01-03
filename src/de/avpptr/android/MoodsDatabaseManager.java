@@ -110,7 +110,7 @@ public class MoodsDatabaseManager{
     	Cursor cursor;
 		int count = 0;
 		try {
-			cursor = db.rawQuery("SELECT * FROM moods;", null);
+			cursor = db.rawQuery("SELECT * FROM moods", null);
 			count = cursor.getCount();
 			cursor.close();
 		}
