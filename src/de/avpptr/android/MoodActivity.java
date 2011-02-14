@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -38,7 +37,7 @@ public class MoodActivity extends Activity {
 	private SeekBar[] mMoodSliders = new SeekBar[NUM_MOODS];
 //	private Editable mMoodNote;
 	private EditText mNoteField;
-	private boolean mMoodNoteFirstFocus = true;
+//	private boolean mMoodNoteFirstFocus = true;
 	
 	private static final int SHOW_TOAST_LENGTH = 1000;
 	
@@ -76,18 +75,18 @@ public class MoodActivity extends Activity {
 
         mNoteField = (EditText) findViewById(R.id.NoteField);
 
-        mNoteField.setOnFocusChangeListener(new OnFocusChangeListener() {
-			
-			public void onFocusChange(View v, boolean hasFocus) {
-				if(v == mNoteField && mMoodNoteFirstFocus && hasFocus){
-					mNoteField.setText("");
-					mMoodNoteFirstFocus = true;
-				}
-//				else if(v == mNoteField && !hasFocus && (mMoodNote.length() == 0)){
-//					mNoteField.setText(R.string.noteFieldDefault);
+//        mNoteField.setOnFocusChangeListener(new OnFocusChangeListener() {
+//			
+//			public void onFocusChange(View v, boolean hasFocus) {
+//				if(v == mNoteField && mMoodNoteFirstFocus && hasFocus){
+//					mNoteField.setText("");
+//					mMoodNoteFirstFocus = true;
 //				}
-			}
-		});
+////				else if(v == mNoteField && !hasFocus && (mMoodNote.length() == 0)){
+////					mNoteField.setText(R.string.noteFieldDefault);
+////				}
+//			}
+//		});
         db = new MoodsDatabaseManager(this);
     }
 
@@ -159,7 +158,7 @@ public class MoodActivity extends Activity {
 			mMoodLabels[i].setText(mMoodNames[i]);
 		}
 		mNoteField.setText("");
-		mMoodNoteFirstFocus = true;
+//		mMoodNoteFirstFocus = true;
 		mNoteField.clearFocus();
 	}
 

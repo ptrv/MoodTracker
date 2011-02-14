@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      android:versionCode="101228"
-      android:versionName="101228" package="de.avpptr.android">
+      android:versionCode="110214"
+      android:versionName="110214" package="de.avpptr.android">
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name=".MoodTracker"
                   android:label="@string/app_name"
