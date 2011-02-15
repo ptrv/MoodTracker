@@ -11,17 +11,24 @@
 		android:id="@+id/ButtonSaveDbAsText" android:onClick="@string/settingsButtonsHandler"
 		android:layout_marginTop="15px" android:layout_marginLeft="10px"
 		android:layout_marginRight="10px" android:layout_marginBottom="15px"></Button>
-	<TextView android:text="@string/settingsDefaultTableName"
-		android:id="@+id/TextViewTableName" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:layout_marginLeft="10px"
-		android:layout_marginRight="10px" android:layout_marginTop="15px"></TextView>
 
 	<LinearLayout android:id="@+id/LinearLayout01"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
 		android:orientation="vertical" android:layout_marginLeft="10px"
 		android:layout_marginRight="10px" android:layout_marginBottom="15px">
+		<TextView android:text="@string/settingsDefaultTableName"
+			android:id="@+id/TextViewTableName" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="10px"
+			android:layout_marginRight="10px" android:layout_marginTop="0px"></TextView>
 		<EditText android:text="@string/defaultTableName" android:id="@+id/EditTextTableName"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"></EditText>
+<!--	<TextView android:text="@string/settingsDefaultUserName"-->
+<!--		android:id="@+id/TextViewUserName" android:layout_width="wrap_content"-->
+<!--		android:layout_height="wrap_content" android:layout_marginLeft="10px"-->
+<!--		android:layout_marginRight="10px" android:layout_marginTop="0px"></TextView>-->
+<!--	<EditText android:text="" android:id="@+id/EditTextUserName"-->
+<!--		android:layout_width="fill_parent" android:layout_height="wrap_content"-->
+<!--		android:hint="@string/defaultUserName"></EditText>-->
 		<Button android:layout_height="wrap_content" android:text="@string/settingsSaveSqlFile"
 			android:layout_width="fill_parent" android:id="@+id/ButtonSaveSqlFile"
 			android:onClick="@string/settingsButtonsHandler"></Button>

@@ -87,7 +87,17 @@ public class SettingsActivity extends Activity{
     		saveFile(false);
     		break;
     	case R.id.ButtonSaveSqlFile:
-    		saveFile(true);
+//    		EditText editUser = (EditText) findViewById(R.id.EditTextUserName);
+//			Editable userName = editUser.getText();
+//			if(userName.length() != 0){
+//	    		saveFile(true);
+//			} else {
+//	            AlertDialog.Builder useralertbox = new AlertDialog.Builder(this);
+//	            useralertbox.setMessage("Please provide a user name!");
+//	            useralertbox.setNeutralButton("Ok", null);
+//	            useralertbox.show();
+//			}
+			saveFile(true);
     		break;
     	}
     }
@@ -129,29 +139,33 @@ public class SettingsActivity extends Activity{
 				file = new File(newPath, "moodtracker_"+now+".sql");
 				EditText editText = (EditText) findViewById(R.id.EditTextTableName);
 				Editable tableName = editText.getText();
+//				EditText editText2 = (EditText) findViewById(R.id.EditTextUserName);
+//				Editable userName = editText2.getText();
 				for (int position = 0; position < data.size(); position++) {
 					ArrayList<Object> row = data.get(position);
 					
 					str += "INSERT INTO " + tableName.toString() + " (";
-					str += Moods.HAPPINESS + ", ";
-					str += Moods.TIREDNESS + ", ";
-					str += Moods.HOPEFUL + ", ";
-					str += Moods.STRESS + ", ";
-					str += Moods.SECURE + ", ";
-					str += Moods.ANXIETY + ", ";
-					str += Moods.PRODUCTIVE + ", ";
-					str += Moods.LOVED + ", ";
-					str += Moods.NOTE + ", ";
+//					str += "user,";
+					str += Moods.HAPPINESS + ",";
+					str += Moods.TIREDNESS + ",";
+					str += Moods.HOPEFUL + ",";
+					str += Moods.STRESS + ",";
+					str += Moods.SECURE + ",";
+					str += Moods.ANXIETY + ",";
+					str += Moods.PRODUCTIVE + ",";
+					str += Moods.LOVED + ",";
+					str += Moods.NOTE + ",";
 					str += Moods.CREATED_DATE + ") VALUES (";
-					str += row.get(3).toString()+", ";
-					str += row.get(4).toString()+", ";
-					str += row.get(5).toString()+", ";
-					str += row.get(6).toString()+", ";
-					str += row.get(7).toString()+", ";
-					str += row.get(8).toString()+", ";
-					str += row.get(9).toString()+", ";
-					str += row.get(10).toString()+", ";
-					str += "'"+row.get(2).toString()+"', ";
+//					str += userName.toString() + ",";
+					str += row.get(3).toString()+",";
+					str += row.get(4).toString()+",";
+					str += row.get(5).toString()+",";
+					str += row.get(6).toString()+",";
+					str += row.get(7).toString()+",";
+					str += row.get(8).toString()+",";
+					str += row.get(9).toString()+",";
+					str += row.get(10).toString()+",";
+					str += "'"+row.get(2).toString()+"',";
 					str += "'"+row.get(1).toString()+"');";
 					str += "\n";
 							
@@ -159,19 +173,20 @@ public class SettingsActivity extends Activity{
 			} else {
 				file = new File(newPath, "moodtracker_"+now+".txt");
 				
+				String header = "time,happiness,tiredness,hopeful,stress,secure,anxiety,productive,loved,message\n";
+				str = header;
 				for (int position = 0; position < data.size(); position++) {
 					ArrayList<Object> row = data.get(position);
 					
-					str += "\""+row.get(1).toString()+"\"";
-					str += ", ";
-					str += "happiness: "+row.get(3).toString()+", ";
-					str += "tiredness: "+row.get(4).toString()+", ";
-					str += "hopeful: "+row.get(5).toString()+", ";
-					str += "stress: "+row.get(6).toString()+", ";
-					str += "secure: "+row.get(7).toString()+", ";
-					str += "anxiety: "+row.get(8).toString()+", ";
-					str += "productive: "+row.get(9).toString()+", ";
-					str += "loved: "+row.get(10).toString()+", ";
+					str += "\""+row.get(1).toString()+"\",";
+					str += row.get(3).toString()+",";
+					str += row.get(4).toString()+",";
+					str += row.get(5).toString()+",";
+					str += row.get(6).toString()+",";
+					str += row.get(7).toString()+",";
+					str += row.get(8).toString()+",";
+					str += row.get(9).toString()+",";
+					str += row.get(10).toString()+",";
 					str += "\""+row.get(2).toString()+"\"";
 					str += "\n";
 				}

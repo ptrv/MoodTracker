@@ -32,7 +32,7 @@ public final class R {
         public static final int ButtonSubmit=0x7f050023;
         public static final int EditTextTableName=0x7f050028;
         public static final int ID_CELL=0x7f050005;
-        public static final int LinearLayout01=0x7f050027;
+        public static final int LinearLayout01=0x7f050026;
         public static final int LinearLayoutAnxiety=0x7f050019;
         public static final int LinearLayoutHappiness=0x7f05000a;
         public static final int LinearLayoutHopeful=0x7f050010;
@@ -66,7 +66,7 @@ public final class R {
         public static final int TextViewSecure=0x7f050017;
         public static final int TextViewStatus=0x7f050024;
         public static final int TextViewStress=0x7f050014;
-        public static final int TextViewTableName=0x7f050026;
+        public static final int TextViewTableName=0x7f050027;
         public static final int TextViewTiredness=0x7f05000e;
         public static final int TextViewVersionNum=0x7f050001;
     }
@@ -79,11 +79,12 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int authorString=0x7f040019;
+        public static final int authorString=0x7f04001b;
         public static final int buttonSubmitHandler=0x7f04000c;
         public static final int buttonSubmitName=0x7f04000d;
         public static final int defaultTableName=0x7f040015;
-        public static final int infoString=0x7f040017;
+        public static final int defaultUserName=0x7f040017;
+        public static final int infoString=0x7f040019;
         public static final int labelAnxiety=0x7f040008;
         public static final int labelHappiness=0x7f040003;
         public static final int labelHopeful=0x7f040005;
@@ -94,12 +95,13 @@ public final class R {
         public static final int labelStress=0x7f040006;
         public static final int labelTiredness=0x7f040004;
         public static final int labelTitle=0x7f040001;
-        public static final int madByString=0x7f040018;
+        public static final int madByString=0x7f04001a;
         public static final int moodRecordTitle=0x7f040013;
         public static final int noteFieldDefault=0x7f04000b;
         public static final int settingsButtonsHandler=0x7f040012;
         public static final int settingsClearDbText=0x7f040010;
         public static final int settingsDefaultTableName=0x7f040016;
+        public static final int settingsDefaultUserName=0x7f040018;
         public static final int settingsSaveDbText=0x7f040011;
         public static final int settingsSaveSqlFile=0x7f040014;
         public static final int settingsStatusText=0x7f04000f;
