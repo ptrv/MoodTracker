@@ -165,8 +165,8 @@ public class SettingsActivity extends Activity{
 					str += row.get(8).toString()+",";
 					str += row.get(9).toString()+",";
 					str += row.get(10).toString()+",";
-					str += "'"+row.get(2).toString()+"',";
-					str += "'"+row.get(1).toString()+"');";
+					str += "\""+row.get(2).toString()+"\",";
+					str += "\""+row.get(1).toString()+"\");";
 					str += "\n";
 							
 				}
